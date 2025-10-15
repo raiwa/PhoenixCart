@@ -2146,7 +2146,7 @@ INSERT INTO outgoing_tpl (id, slug, date_added) VALUES ('2', 'order_thanks', NOW
 INSERT INTO outgoing_tpl (id, slug, date_added) VALUES ('3', 'winback', NOW());
 
 INSERT INTO outgoing_tpl_info (id, languages_id, title, text) VALUES (1, 1, '{{FNAME}}, no checkout?', 'Hi {{FNAME}}\r\n\r\nWe noticed you registered on our site back on the {{SIGN_UP_DAY}} of {{SIGN_UP_MONTH}} but you did not checkout.\r\n\r\nIf you had a problem with our site, please do not hesitate to contact us.');
-INSERT INTO outgoing_tpl_info (id, languages_id, title, text) VALUES (2, 1, '{{FNAME}} thank you for Order #{{ORDER_ID}}', 'Hi {{FNAME}}\r\n\r\nThank you for Order #{{ORDER_ID}} made on {{ORDER_DATE}}.  We are working to pick and pack your Order and will update you at each stage of the process.\r\n\r\nYou ordered:\r\n{{ORDER_PRODUCTS}}\r\n\r\nIf you have any questions about this Order or our site, please do not hesitate to contact us.');
+INSERT INTO outgoing_tpl_info (id, languages_id, title, text) VALUES (2, 1, '{{FNAME}} thank you for Order #{{ORDER_ID}}', 'Hi {{FNAME}}\r\n\r\nThank you for Order #{{ORDER_ID}} made on {{ORDER_DAY}} {{ORDER_MONTH}}.  We are working to pick and pack your Order and will update you at each stage of the process.\r\n\r\nYou ordered:\r\n{{#EACH LIST_PRODUCTS}}{{QTY}} x {{NAME}} totalling {{FINAL_PRICE}}\r\n{{/EACH}}\r\nIf you have any questions about this Order or our site, please do not hesitate to contact us.');
 INSERT INTO outgoing_tpl_info (id, languages_id, title, text) VALUES (3, 1, '{{FNAME}}, we\'ve missed you', 'Hi {{FNAME}}\r\n\r\nWe really hope you enjoyed your products that you ordered back on {{ORDER_DATE}}\r\n\r\nWe have new products we think you might be interested in.');
 
 

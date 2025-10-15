@@ -47,8 +47,15 @@
         $_mt['order_year']  = Text::input($ordered->format('Y'));
         
         // make the list of products
-        $list = '';
+        $list = ''; 
+        $_mt['list_products'] = [];
         foreach ($thanks->products as $product) {
+          $_mt['list_products'][] = [
+            'qty' => $product['qty'],
+            'name' => $product['name'],
+            'final_price' => $GLOBALS['currencies']->format(Tax::price($product['final_price'], $product['tax']) * $product['qty'], true, $thanks->info['currency'], $thanks->info['currency_value']),
+          ];
+          
           $list .= $product['name'] . PHP_EOL;
         }
 
@@ -86,6 +93,7 @@
       $merge_tags[$f]['{{ORDER_DAY}}']   = 'Day (eg 20th)';
       $merge_tags[$f]['{{ORDER_MONTH}}'] = 'Month (eg January)';
       $merge_tags[$f]['{{ORDER_YEAR}}']  = 'Year (eg 2024)';
+      $merge_tags[$f]['{{LIST_PRODUCTS}}'] = 'List of Ordered Products (using #EACH loop)';
       
       return $merge_tags;
     }
