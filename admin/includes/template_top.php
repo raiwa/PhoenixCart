@@ -9,6 +9,8 @@
 
   Released under the GNU General Public License
 */
+
+$admin_hooks->cat('injectRedirects');
 ?>
 <!DOCTYPE html>
 <html <?= HTML_PARAMS ?>>
